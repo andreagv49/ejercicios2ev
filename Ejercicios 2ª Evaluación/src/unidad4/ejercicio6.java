@@ -1,7 +1,6 @@
 package unidad4;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class ejercicio6 {
 
@@ -25,22 +24,12 @@ public class ejercicio6 {
 			
 			int num2;
 			
-			int seguir = 1;
-			
 			do {
-				
+
 				num2 = (int) Math.floor(Math.random()*(100-(-100)+1)+(-100));
 				
-				for (int j=0; j<vector1.length; j++) {
-					
-					if(vector1[j] == num2) {
-						seguir = 1;
-					}else {
-						seguir = 0;
-					}
-				}
 				
-			} while (seguir == 1);
+			}while(coincide(vector1, num2, i));
 			
 			vector1[i] = num2;
 
@@ -58,4 +47,13 @@ public class ejercicio6 {
 		System.out.println(Arrays.toString(vector2));
 	}
 
+	static boolean coincide(int [] vector, int num, int i)
+	{
+		for (int j=0; j < i; j++)
+			if (vector[j] == num) {
+				return true;
+			}
+		return false;
+			
+	}
 }

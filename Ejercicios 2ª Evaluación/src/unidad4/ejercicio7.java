@@ -21,9 +21,9 @@ public class ejercicio7 {
 
 		int seguir = 1;
 		int tamaño;
-		
+		Scanner scan = new Scanner(System.in);
 		do {
-			Scanner scan = new Scanner(System.in);
+			
 			
 			System.out.println("Introduzca un valor entre 10 y 1.000.000");
 			tamaño = scan.nextInt();
@@ -91,6 +91,8 @@ public class ejercicio7 {
 		
 		System.out.println("Diferencia: "+diferencia);
 		System.out.println("Tiempo en calcular la diferencia: "+tiempo(tFinDif, tIniDif));
+		
+		scan.close();
 
 	}
 	

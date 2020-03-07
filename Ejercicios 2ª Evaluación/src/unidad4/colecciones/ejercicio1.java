@@ -18,8 +18,9 @@ public class ejercicio1 {
 		for (int i=0; i<num; i++) {
 			
 			String nombre = scan.next();
-					if(!nombres.contains(nombre))
-						nombres.add(nombre);
+			
+			if(!nombres.contains(nombre))
+				nombres.add(nombre);
 		}
 		scan.close();
 		System.out.println(nombres);

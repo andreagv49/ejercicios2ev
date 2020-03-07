@@ -49,7 +49,6 @@ public class ejercicio2 {
 			System.out.printf("%d ", j.next());
 		}
 		
-		Iterator<Integer> l = lista2.iterator();
 		//MOSTRAMOS POR PANTALLA METODO 2 (BUCLE FOR MEJORADO)
 		System.out.println();
 		System.out.println("Metodo 2");

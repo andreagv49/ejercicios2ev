@@ -40,7 +40,9 @@ public class PruebaAutomovil {
 			automoviles.put(modelo, auto);
 			
 		}
+		
 		boolean repetir = true;
+		
 		while (repetir = true) {
 			
 			String accion = scan.nextLine().trim();
@@ -89,7 +91,8 @@ public class PruebaAutomovil {
 				repetir = true;	
 				//System.out.println(automoviles);
 			}else {
-				//System.out.println(automoviles);
+				
+				System.out.println("-------------------");
 				for (String e: automoviles.keySet()) {
 					
 					String modelo = automoviles.get(e).get_modelo();
@@ -97,11 +100,13 @@ public class PruebaAutomovil {
 					double kmRec = automoviles.get(e).get_kmRecorridos();
 					System.out.println(modelo + " " + kmRec + " " + combCons);
 				}
+				
 				repetir = false;
 			}
 		}
-		System.out.println("");
+		
 		scan.close();
+		
 	}
 
 }

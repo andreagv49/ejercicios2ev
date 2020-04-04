@@ -49,9 +49,10 @@ public class Automovil {
 		
 		if (cantidadInicialDeposito > consumo*km) {
 			//se puede
-			kmRecorridos = kmRecorridos + km;
-			combustibleConsumido = combustibleConsumido + consumo*km;
-			return cantidadInicialDeposito - (consumo*km);
+			this.kmRecorridos = kmRecorridos + km;
+			this.combustibleConsumido = combustibleConsumido + consumo*km;
+			this.cantidadInicialDeposito = cantidadInicialDeposito - (consumo*km);
+			return cantidadInicialDeposito;
 		}else {
 			//no se puede
 			return -1;
@@ -78,6 +79,10 @@ public class Automovil {
 	public double get_combustibleConsumido() {
 		
 		return combustibleConsumido;
+	}
+	public double get_cantidadInicialDeposito() {
+		
+		return cantidadInicialDeposito;
 	}
 	
 	@Override

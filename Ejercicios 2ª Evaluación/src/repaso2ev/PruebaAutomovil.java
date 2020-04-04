@@ -2,6 +2,8 @@ package repaso2ev;
 
 import repaso2ev.Automovil;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
@@ -16,6 +18,10 @@ public class PruebaAutomovil {
 		
 		Scanner scan = new Scanner (System.in);
 		int nAutos = Integer.parseInt(scan.nextLine());
+		
+		DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
+		simbolos.setDecimalSeparator('.');
+		DecimalFormat formatea = new DecimalFormat("0.00",simbolos);
 		
 		//definimos el mapa de automoviles
 		Map<String, Automovil> automoviles = new TreeMap<>();
@@ -71,13 +77,13 @@ public class PruebaAutomovil {
 								
 								double consumo = auto.get_consumo();
 								double consumido = consumo*kilometros;
-								System.out.println(modelo + " " + cantidadDeposito + " " + consumido);
+								System.out.println(modelo + " " + formatea.format(cantidadDeposito) + " " + formatea.format(consumido));
 								
 								//añadimos al objeto auto 
 								//sustituimos la cantidad inicial del depósito
 								double capacidadDeposito = auto.get_capacidadDeposito();
-								Automovil autoSustituir = new Automovil(modelo, capacidadDeposito ,cantidadDeposito, consumo);
-								automoviles.put(modelo,autoSustituir);
+								//Automovil autoSustituir = new Automovil(modelo, capacidadDeposito ,cantidadDeposito, consumo);
+								//automoviles.put(modelo,autoSustituir);
 								
 							}
 							
@@ -92,15 +98,19 @@ public class PruebaAutomovil {
 				//System.out.println(automoviles);
 			}else {
 				
+				accion = accionArr[0];
+				if(accion.equals("fin")) {
 				System.out.println("-------------------");
 				for (String e: automoviles.keySet()) {
 					
 					String modelo = automoviles.get(e).get_modelo();
+					double combRestante = automoviles.get(e).get_cantidadInicialDeposito();
 					double combCons = automoviles.get(e).get_combustibleConsumido();
 					double kmRec = automoviles.get(e).get_kmRecorridos();
-					System.out.println(modelo + " " + kmRec + " " + combCons);
+					
+					System.out.println(modelo + " " + formatea.format(combRestante)+ " " + formatea.format(kmRec) + " " + formatea.format(combCons));
 				}
-				
+				}
 				repetir = false;
 			}
 		}
